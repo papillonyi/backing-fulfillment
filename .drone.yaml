@@ -1,0 +1,12 @@
+workspace:
+  base: /go
+  path: src/github.com/drone/drone
+
+pipeline:
+  build:
+    image: golang
+    commands:
+      - echo $GOPATH
+      - go get
+      - go build
+      - go test -v $(glide novendor)
